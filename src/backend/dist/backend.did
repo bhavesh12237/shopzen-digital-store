@@ -1,0 +1,78 @@
+type UserProfilePublic = 
+ record {
+   email: text;
+   id: UserId;
+   name: text;
+ };
+type UserId = principal;
+type Timestamp = int;
+type ProductId = nat;
+type Product = 
+ record {
+   category: text;
+   description: text;
+   id: ProductId;
+   imageUrl: text;
+   name: text;
+   price: float64;
+   rating: float64;
+   stock: nat;
+ };
+type OrderStatus = 
+ variant {
+   cancelled;
+   delivered;
+   pending;
+   processing;
+   shipped;
+ };
+type OrderItem = 
+ record {
+   price: float64;
+   productId: ProductId;
+   quantity: nat;
+ };
+type OrderId = nat;
+type Order = 
+ record {
+   billingInfo: BillingInfo;
+   createdAt: Timestamp;
+   id: OrderId;
+   items: vec OrderItem;
+   status: OrderStatus;
+   total: float64;
+   userId: UserId;
+ };
+type ContactMessage = 
+ record {
+   email: text;
+   id: ContactId;
+   message: text;
+   name: text;
+   subject: text;
+   timestamp: Timestamp;
+ };
+type ContactId = nat;
+type BillingInfo = 
+ record {
+   address: text;
+   city: text;
+   country: text;
+   email: text;
+   fullName: text;
+   postalCode: text;
+ };
+service : {
+  createOrder: (items: vec OrderItem, billingInfo: BillingInfo, total:
+   float64) -> (Order);
+  getMyOrders: () -> (vec Order) query;
+  getMyProfile: () -> (opt UserProfilePublic) query;
+  getOrder: (id: OrderId) -> (opt Order) query;
+  getProduct: (id: ProductId) -> (opt Product) query;
+  listProducts: (category: opt text, searchText: opt text) ->
+   (vec Product) query;
+  seedProducts: () -> ();
+  submitContactMessage: (name: text, email: text, subject: text, message:
+   text) -> (ContactMessage);
+  upsertProfile: (name: text, email: text) -> (UserProfilePublic);
+}

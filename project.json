@@ -1,0 +1,25 @@
+{
+  "overview": "A full-featured digital marketing and e-commerce storefront with product catalog, shopping cart, Stripe checkout, About and Contact pages, and order management — all in a fast, responsive, visually polished design.",
+  "features": [
+    "Home page with hero, featured products, and testimonials",
+    "Shop page with product grid, search, and category filters",
+    "Product detail pages with image gallery and Add to Cart",
+    "Shopping cart with live item count badge and persisted state",
+    "Checkout with Stripe debit/credit card payment",
+    "Order confirmation and order history",
+    "About page with company story and values",
+    "Contact page with form, phone, fax, email, Twitter and Facebook",
+    "User accounts and login via Internet Identity",
+    "Fully responsive mobile-first design"
+  ],
+  "category": "ecommerce",
+  "tags": [
+    "ecommerce",
+    "digital-marketing",
+    "shop",
+    "stripe",
+    "multi-page",
+    "responsive"
+  ],
+  "last_updated": "2026-04-14T20:46:46.417Z"
+}
